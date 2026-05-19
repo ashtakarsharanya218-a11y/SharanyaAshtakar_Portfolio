@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sharanya Ashtakar — Research Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky:       #EBF4FA;
+    --skydeep:   #D6ECF7;
+    --accent:    #3A7CA5;
+    --accent2:   #5BA4CF;
+    --soft:      #B8D8ED;
+    --ink:       #1A2B38;
+    --mid:       #4A6278;
+    --muted:     #7A9AB0;
+    --card:      #FFFFFF;
+    --lavender:  #EEF0FB;
+    --mint:      #EAF6F2;
+    --peach:     #FDF0EC;
+    --rule:      #C8DDE9;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--sky);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, #D6ECF7 0%, #EBF4FA 50%, #EEF0FB 100%);
+    border-bottom: 1px solid var(--rule);
+    padding: 0 60px;
+  }
+
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 72px 0 60px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 48px;
+    align-items: end;
+  }
+
+  .h-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+
+  .h-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1.0;
+    letter-spacing: -1px;
+    color: var(--ink);
+  }
+
+  .h-name em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .h-tag {
+    margin-top: 18px;
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--mid);
+    max-width: 520px;
+    line-height: 1.8;
+  }
+
+  .h-contact {
+    text-align: right;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 2.2;
+    flex-shrink: 0;
+  }
+
+  .h-contact a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
+  }
+
+  .h-contact a:hover { opacity: 0.7; }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--skydeep);
+    border-bottom: 1px solid var(--rule);
+    padding: 0 60px;
+  }
+
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 32px;
+    padding: 16px 0;
+  }
+
+  nav a {
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  nav a:hover { color: var(--accent); }
+
+  /* ── WRAPPER ── */
+  .wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 60px;
+  }
+
+  /* ── ABOUT ── */
+  .about-section {
+    padding: 60px 60px 52px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .about-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 56px;
+  }
+
+  .sec-label {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    padding-top: 4px;
+  }
+
+  .about-text {
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--ink);
+  }
+
+  .about-text strong { font-weight: 500; }
+
+  /* ── RESEARCH SECTION ── */
+  .research-section {
+    padding: 64px 60px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .research-inner { max-width: 1100px; margin: 0 auto; }
+
+  .sec-header {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 56px;
+    margin-bottom: 48px;
+  }
+
+  .sec-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 2.8vw, 34px);
+    line-height: 1.2;
+    color: var(--ink);
+    letter-spacing: -0.2px;
+  }
+
+  /* ── CARDS ── */
+  .cards { display: flex; flex-direction: column; gap: 3px; }
+
+  .card {
+    background: var(--card);
+    border-radius: 4px;
+    padding: 40px 46px;
+    position: relative;
+    border-left: 3px solid transparent;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  }
+
+  .card:hover {
+    border-left-color: var(--accent2);
+    box-shadow: 0 8px 32px rgba(58,124,165,0.10);
+    transform: translateY(-2px);
+  }
+
+  /* alternating pastel card accents */
+  .card:nth-child(1) { background: #FFFFFF; }
+  .card:nth-child(2) { background: #FAFCFE; }
+  .card:nth-child(3) { background: #FAFEFE; }
+  .card:nth-child(4) { background: #FEFAFA; }
+  .card:nth-child(5) { background: #FAFAFE; }
+
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+
+  .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--accent);
+    min-width: 24px;
+  }
+
+  .badge {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+
+  .b-type    { background: var(--skydeep); color: var(--accent); }
+  .b-pending { background: #FEF3EC; color: #C0622A; }
+  .b-done    { background: #EAF6F2; color: #2E7A60; }
+  .b-unpub   { background: var(--lavender); color: #5560A0; }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18px, 2vw, 23px);
+    line-height: 1.28;
+    color: var(--ink);
+    margin-bottom: 7px;
+  }
+
+  .card-sub {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 24px;
+  }
+
+  /* stat row */
+  .stats {
+    display: flex;
+    gap: 36px;
+    flex-wrap: wrap;
+    padding: 18px 22px;
+    background: var(--skydeep);
+    border-radius: 4px;
+    margin-bottom: 4px;
+  }
+
+  .stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .stat-lab {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+
+  /* 3-col grid */
+  .g3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 28px;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .g2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .col h4 {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  .col p, .col li {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--mid);
+  }
+
+  .col ul { list-style: none; padding: 0; }
+
+  .col li {
+    padding-left: 16px;
+    position: relative;
+    margin-bottom: 5px;
+  }
+
+  .col li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--soft);
+    font-size: 13px;
+  }
+
+  /* relevance callout */
+  .callout {
+    margin-top: 20px;
+    padding: 13px 18px;
+    background: linear-gradient(135deg, var(--skydeep), var(--lavender));
+    border-left: 2px solid var(--accent2);
+    border-radius: 0 4px 4px 0;
+    font-size: 13.5px;
+    color: var(--mid);
+    line-height: 1.7;
+  }
+
+  .callout strong {
+    display: block;
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 5px;
+  }
+
+  /* tools */
+  .tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 18px;
+  }
+
+  .tool {
+    font-size: 12px;
+    font-weight: 400;
+    background: var(--skydeep);
+    color: var(--accent);
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.02em;
+    border: 1px solid var(--soft);
+  }
+
+  /* ── SKILLS ── */
+  .skills-section {
+    padding: 64px 60px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .skills-inner { max-width: 1100px; margin: 0 auto; }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+    margin-top: 0;
+  }
+
+  .skill-block {
+    background: var(--card);
+    padding: 28px 32px;
+    border-radius: 4px;
+  }
+
+  /* pastel accents on skill blocks */
+  .skill-block:nth-child(1) { background: #F0F7FD; }
+  .skill-block:nth-child(2) { background: #F0FBF8; }
+  .skill-block:nth-child(3) { background: #F5F0FD; }
+  .skill-block:nth-child(4) { background: #FDF5F0; }
+  .skill-block:nth-child(5) { background: #F0F7FD; }
+  .skill-block:nth-child(6) { background: #F0FBF8; }
+
+  .skill-block h3 {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+
+  .skill-block ul { list-style: none; padding: 0; }
+
+  .skill-block li {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--mid);
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .skill-block li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--accent2);
+    font-size: 20px;
+    line-height: 1.3;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--skydeep);
+    border-top: 1px solid var(--rule);
+    padding: 36px 60px;
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer p { font-size: 13px; color: var(--muted); }
+  footer a { color: var(--accent); text-decoration: none; font-weight: 500; }
+  footer a:hover { opacity: 0.7; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    header, .about-section, .research-section, .skills-section { padding-left: 20px; padding-right: 20px; }
+    .header-inner { grid-template-columns: 1fr; padding: 40px 0 36px; }
+    .h-contact { text-align: left; }
+    nav { padding: 0 20px; }
+    .about-inner, .sec-header { grid-template-columns: 1fr; gap: 10px; }
+    .g3, .g2 { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .card { padding: 24px 20px; }
+    .stats { gap: 20px; }
+    footer { padding: 28px 20px; }
+    .footer-inner { flex-direction: column; gap: 8px; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div>
+      <p class="h-eyebrow">Research Portfolio</p>
+      <h1 class="h-name">Sharanya<br><em>Ashtakar</em></h1>
+      <p class="h-tag">Behavioural researcher with a psychology foundation and hands-on experience across qualitative fieldwork, psychometric research, and quantitative study design — consistently curious about the human behaviour beneath the surface.</p>
+    </div>
+    <div class="h-contact">
+      <div>Bengaluru, India</div>
+      <div>+91 8123883237</div>
+      <div><a href="mailto:ashtakarsharanya218@gmail.com">ashtakarsharanya218@gmail.com</a></div>
+      <div><a href="https://linkedin.com/in/sharanya-ashtakar-67676a229" target="_blank">LinkedIn ↗</a></div>
+      <div><a href="https://ashtakarsharanya218-a11y.github.io/SharanyaAshtakar_Portfolio/#projects" target="_blank">Portfolio ↗</a></div>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#skills">Skills</a>
+  </div>
+</nav>
+
+<!-- ABOUT -->
+<div class="about-section" id="about">
+  <div class="about-inner">
+    <div class="sec-label">About</div>
+    <div class="about-text">
+      I am a postgraduate researcher completing an M.Sc. in Clinical Psychology (9.65 CGPA, results awaited) with a track record of designing, executing, and synthesising research independently — across qualitative interviews, quantitative survey studies, and large-scale behavioural datasets. I recently completed a full-time research assistantship at <strong>NIMHANS (ICMR-CAR)</strong> on a digital mental health project studying digital phenotyping in schizophrenia. My research is consistently about the gap between what people do and why — the motivations, contexts, and contradictions that surface only if you look closely enough.
+      <br><br>
+      Fluent in <strong>English, Hindi, Kannada, and Marathi</strong> — which makes fieldwork with diverse Indian participant groups significantly more naturalistic.
+    </div>
+  </div>
+</div>
+
+<!-- RESEARCH -->
+<div class="research-section" id="research">
+  <div class="research-inner">
+    <div class="sec-header">
+      <div class="sec-label">Research</div>
+      <h2 class="sec-title">Five studies. Multiple methods.<br>One consistent question: why do people do what they do?</h2>
+    </div>
+
+    <div class="cards">
+
+      <!-- 01 MEME STUDY -->
+      <div class="card">
+        <div class="card-meta">
+          <span class="num">01</span>
+          <span class="badge b-type">Qualitative · Interview-Based</span>
+          <span class="badge b-pending">Publication Pending</span>
+        </div>
+        <h3 class="card-title">Humor in Meme Culture as Means of Emotional Expression Among Male Young Adults: Exploring Stereotypes</h3>
+        <p class="card-sub">Lead Researcher · Sep 2024</p>
+
+        <div class="g3">
+          <div class="col">
+            <h4>The Question</h4>
+            <p>When a cultural context — specifically, rigid male identity norms — blocks direct emotional expression, where does the behaviour actually go? This study treated meme culture as a non-traditional emotional outlet worth taking seriously.</p>
+          </div>
+          <div class="col">
+            <h4>The Process</h4>
+            <ul>
+              <li>Conducted in-depth interviews with male young adults</li>
+              <li>Applied Thematic Analysis to identify patterns across transcripts</li>
+              <li>Used MAXQDA for qualitative coding and theme development</li>
+              <li>Explored "meme culture" as a proxy for suppressed emotional expression</li>
+            </ul>
+          </div>
+          <div class="col">
+            <h4>What Emerged</h4>
+            <p>Memes function as a socially sanctioned container for emotions that cultural norms otherwise suppress — a digital coping mechanism that reveals far more about its users than they consciously express. The research question itself is a behavioural one: when direct expression is blocked, behaviour finds another route.</p>
+          </div>
+        </div>
+
+        <div class="callout">
+          <strong>Why this matters for research practice</strong>
+          This is end-to-end qualitative research on a real user segment — defining the question, recruiting participants, conducting and analysing interviews, and synthesising findings into a coherent insight. The methods map directly to design ethnography and UX/behavioural research.
+        </div>
+
+        <div class="tools">
+          <span class="tool">In-Depth Interviews</span>
+          <span class="tool">Thematic Analysis</span>
+          <span class="tool">MAXQDA</span>
+          <span class="tool">Qualitative Coding</span>
+          <span class="tool">Insight Synthesis</span>
+        </div>
+      </div>
+
+      <!-- 02 NIMHANS -->
+      <div class="card">
+        <div class="card-meta">
+          <span class="num">02</span>
+          <span class="badge b-type">Longitudinal Study · Mixed Methods</span>
+          <span class="badge b-done">Completed Apr 2026</span>
+        </div>
+        <h3 class="card-title">Digital Mental Health Intervention — Digital Phenotyping in Schizophrenia</h3>
+        <p class="card-sub">Research Assistant · NIMHANS (ICMR Centre for Advanced Research) · Jan – Apr 2026</p>
+
+        <div class="g3">
+          <div class="col">
+            <h4>The Context</h4>
+            <p>A longitudinal digital mental health study at NIMHANS examining digital phenotyping in schizophrenia — one of India's most rigorous clinical research environments. My role was to manage the data pipeline that made the research credible and analysable.</p>
+          </div>
+          <div class="col">
+            <h4>What I Did</h4>
+            <ul>
+              <li>Managed psychometric data for 32+ participants — entry, scoring, and quality assurance for standardised assessments</li>
+              <li>Cleaned and structured large-scale digital phenotyping data (app-usage behavioural data, thousands of rows)</li>
+              <li>Generated automated data quality reports using Python</li>
+              <li>Maintained high-integrity data workflows in REDCap</li>
+            </ul>
+          </div>
+          <div class="col">
+            <h4>What I Learned</h4>
+            <p>Behavioural data from real participants is messy. The rigour is in the cleaning, the checking, and the ability to structure chaos into something a research team can trust and act on. This role built exactly that discipline.</p>
+          </div>
+        </div>
+
+        <div class="callout">
+          <strong>Why this matters for research practice</strong>
+          Managing a real research pipeline end-to-end — from raw data to structured, trustworthy output — is the operational backbone of any serious research function. The skills here translate directly to research ops in behavioural, UX, or consumer insight contexts.
+        </div>
+
+        <div class="tools">
+          <span class="tool">REDCap</span>
+          <span class="tool">Python</span>
+          <span class="tool">Google Sheets</span>
+          <span class="tool">Psychometric Scoring</span>
+          <span class="tool">Digital Phenotyping</span>
+          <span class="tool">Longitudinal Design</span>
+        </div>
+      </div>
+
+      <!-- 03 FINAL DISSERTATION -->
+      <div class="card">
+        <div class="card-meta">
+          <span class="num">03</span>
+          <span class="badge b-type">Quantitative · Mediation Study</span>
+          <span class="badge b-done">Completed Apr 2026</span>
+        </div>
+        <h3 class="card-title">From Social Evaluation Sensitivity to Social Capital: The Role of Social Initiation</h3>
+        <p class="card-sub">Post-Graduate Dissertation · PES University · Jan – Apr 2026</p>
+
+        <div class="stats">
+          <div>
+            <div class="stat-val">124</div>
+            <div class="stat-lab">Participants (aged 18–35)</div>
+          </div>
+          <div>
+            <div class="stat-val">3</div>
+            <div class="stat-lab">Validated instruments (BFNE, ICQ, PSCS-16)</div>
+          </div>
+          <div>
+            <div class="stat-val">r = .21*</div>
+            <div class="stat-lab">Social initiation → Social capital (p = .019)</div>
+          </div>
+        </div>
+
+        <div class="g3">
+          <div class="col">
+            <h4>The Question</h4>
+            <p>Does social initiation behaviour explain the relationship between an individual's sensitivity to social evaluation (fear of judgment) and their perceived access to personal social capital? In other words — does anxiety about being judged prevent people from building networks?</p>
+          </div>
+          <div class="col">
+            <h4>Methodology</h4>
+            <ul>
+              <li>Quantitative, cross-sectional, correlational design</li>
+              <li>BFNE (12 items) — fear of negative evaluation</li>
+              <li>ICQ Initiation Subscale (8 items) — social initiation competence</li>
+              <li>PSCS-16 — perceived personal social capital</li>
+              <li>Pearson's correlation + path-based mediation analysis (jamovi)</li>
+              <li>Shapiro-Wilk normality confirmed; parametric tests used</li>
+            </ul>
+          </div>
+          <div class="col">
+            <h4>What the Data Said</h4>
+            <ul>
+              <li>Social initiation significantly predicted social capital (r = .210, p = .019) ✓</li>
+              <li>Fear of evaluation did not significantly inhibit initiation (p = .063)</li>
+              <li>Mediation model rejected — fear of judgment doesn't directly translate into social isolation</li>
+              <li>Conclusion: what you do matters more than how you feel about doing it</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout">
+          <strong>Why this matters for research practice</strong>
+          A full end-to-end quantitative study — instrument selection, survey design, data collection (n=124), statistical analysis, and a structured written report with discussion of null findings. Null results handled rigorously are a mark of research maturity. The core question — what drives social behaviour despite internal discomfort — is directly relevant to behavioural intervention design.
+        </div>
+
+        <div class="tools">
+          <span class="tool">jamovi</span>
+          <span class="tool">Pearson's Correlation</span>
+          <span class="tool">Path / Mediation Analysis</span>
+          <span class="tool">BFNE · ICQ · PSCS-16</span>
+          <span class="tool">Survey Design</span>
+          <span class="tool">APA Reporting</span>
+        </div>
+      </div>
+
+      <!-- 04 PG DISS YEAR 1 -->
+      <div class="card">
+        <div class="card-meta">
+          <span class="num">04</span>
+          <span class="badge b-type">Quantitative · Correlational</span>
+          <span class="badge b-done">Completed Apr 2025</span>
+        </div>
+        <h3 class="card-title">Narrative Identity, Cognitive Reappraisal & Interpersonal Victimhood</h3>
+        <p class="card-sub">Post-Graduate Dissertation (Year 1) · PES University · Apr 2025</p>
+
+        <div class="g2">
+          <div class="col">
+            <h4>The Question</h4>
+            <p>How does the way people "story" their own life experiences relate to their tendency toward interpersonal victimhood and their capacity for cognitive reappraisal? Does narrative identity shape how we relate to others?</p>
+            <br>
+            <h4>Methodology</h4>
+            <ul>
+              <li>Quantitative, survey-based, observational design</li>
+              <li>Sample: 194 participants</li>
+              <li>Correlation and regression analyses to test predictive power of narrative identity</li>
+              <li>Tools: jamovi, APA-style reporting</li>
+            </ul>
+          </div>
+          <div class="col">
+            <h4>Impact</h4>
+            <p>Findings offered insights into cognitive reappraisal strategies — demonstrating how the internal narratives we hold about ourselves drive measurable social-psychological outcomes.</p>
+            <div class="callout" style="margin-top: 18px;">
+              <strong>Why this matters for research practice</strong>
+              This study demonstrates ability to design and execute a survey-based quantitative study at scale (n=194), conduct regression analysis, and communicate findings.
+            </div>
+          </div>
+        </div>
+
+        <div class="tools">
+          <span class="tool">jamovi</span>
+          <span class="tool">Correlation Analysis</span>
+          <span class="tool">Regression Analysis</span>
+          <span class="tool">Survey Design</span>
+          <span class="tool">APA Reporting</span>
+          <span class="tool">Conference Presentation</span>
+        </div>
+      </div>
+
+      <!-- 05 WHITE PAPER -->
+      <div class="card">
+        <div class="card-meta">
+          <span class="num">05</span>
+          <span class="badge b-type">Secondary Research · White Paper</span>
+          <span class="badge b-unpub">Unpublished</span>
+        </div>
+        <h3 class="card-title">A Transformative Framework for Menopausal Health</h3>
+        <p class="card-sub">Lead Researcher & First Author · For Private Practice · 2025</p>
+
+        <div class="g2">
+          <div class="col">
+            <h4>The Objective</h4>
+            <p>To map the intersection of hormonal health, psychological well-being, and systemic gaps in healthcare and workplace support for women in midlife — and propose an evidence-based framework for a clinical venture.</p>
+            <br>
+            <h4>Key Research Areas</h4>
+            <ul>
+              <li>Symptom mapping: psychological (94% irritability) and cognitive (73% memory issues) symptoms unaddressed in traditional clinical settings</li>
+              <li>Gap identification: lack of medical specialisation, workplace taboos, the "silent" nature of midlife transition</li>
+              <li>Framework proposal: Education, Personalised Care, Workplace Policy (DEI), Community (CBT-based peer support)</li>
+            </ul>
+          </div>
+          <div class="col">
+            <h4>Skills Demonstrated</h4>
+            <ul>
+              <li><strong style="font-weight:500;color:var(--ink)">Synthesis across domains:</strong> bridged endocrinology and organisational behaviour into actionable insight</li>
+              <li><strong style="font-weight:500;color:var(--ink)">Strategic writing:</strong> translated complex medical-psychological data into a clear, practitioner-facing narrative</li>
+              <li><strong style="font-weight:500;color:var(--ink)">Independent delivery:</strong> scoped, researched, and authored the complete white paper as first author over 120+ hours</li>
+            </ul>
+            <div class="callout" style="margin-top: 18px;">
+              <strong>Why this matters for research practice</strong>
+              This is the deliverable side of research — taking an ambiguous, complex domain and producing a structured document a non-expert audience can act on. The core skill: scoping, synthesising, and making a clear argument from messy evidence.
+            </div>
+          </div>
+        </div>
+
+        <div class="tools">
+          <span class="tool">Secondary Research</span>
+          <span class="tool">Literature Synthesis</span>
+          <span class="tool">Framework Development</span>
+          <span class="tool">Strategic Writing</span>
+          <span class="tool">120+ hours</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div class="skills-section" id="skills">
+  <div class="skills-inner">
+    <div class="sec-header">
+      <div class="sec-label">Skills</div>
+      <h2 class="sec-title">Methods, tools,<br>and ways of working.</h2>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-block">
+        <h3>Qualitative Methods</h3>
+        <ul>
+          <li>In-depth interviews</li>
+          <li>Focus group facilitation</li>
+          <li>Thematic analysis</li>
+          <li>Contextual inquiry</li>
+          <li>Observational research</li>
+          <li>Qualitative coding — MAXQDA</li>
+        </ul>
+      </div>
+      <div class="skill-block">
+        <h3>Quantitative Methods</h3>
+        <ul>
+          <li>Survey design & administration</li>
+          <li>Correlation & regression analysis</li>
+          <li>Mediation / path analysis</li>
+          <li>Psychometric assessment & scoring</li>
+          <li>Normality testing (Shapiro-Wilk)</li>
+          <li>Statistical analysis — jamovi</li>
+        </ul>
+      </div>
+      <div class="skill-block">
+        <h3>Data & Pipeline</h3>
+        <ul>
+          <li>Python — data cleaning & reporting</li>
+          <li>REDCap — research data management</li>
+          <li>Digital phenotyping data</li>
+          <li>Microsoft Excel & Google Sheets</li>
+          <li>Python for Data Analysis (ongoing)</li>
+        </ul>
+      </div>
+      <div class="skill-block">
+        <h3>Research Delivery</h3>
+        <ul>
+          <li>Academic dissertations (APA style)</li>
+          <li>White papers & practitioner reports</li>
+          <li>Structured insight presentations</li>
+          <li>Conference presentations</li>
+          <li>Cross-domain synthesis</li>
+          <li>Independent project delivery</li>
+        </ul>
+      </div>
+      <div class="skill-block">
+        <h3>Languages</h3>
+        <ul>
+          <li>English — fluent</li>
+          <li>Hindi — fluent</li>
+          <li>Kannada — fluent</li>
+          <li>Marathi — fluent</li>
+        </ul>
+      </div>
+      <div class="skill-block">
+        <h3>Tools & Platforms</h3>
+        <ul>
+          <li>MAXQDA</li>
+          <li>jamovi</li>
+          <li>REDCap</li>
+          <li>Microsoft Office</li>
+          <li>Canva</li>
+          <li>Google Workspace</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <p>Sharanya Ashtakar · Bengaluru, India · 2026</p>
+    <p>
+      <a href="mailto:ashtakarsharanya218@gmail.com">ashtakarsharanya218@gmail.com</a>
+      &nbsp;·&nbsp;
+      <a href="https://linkedin.com/in/sharanya-ashtakar-67676a229" target="_blank">LinkedIn ↗</a>
+      &nbsp;·&nbsp;
+      <a href="https://ashtakarsharanya218-a11y.github.io/SharanyaAshtakar_Portfolio/#projects" target="_blank">Portfolio ↗</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
